@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import java.util.TimeZone;
 
 
-import com.kosherjava.zmanim.AstronomicalCalendar;
 import com.kosherjava.zmanim.ComplexZmanimCalendar;
 import com.kosherjava.zmanim.util.GeoLocation;
-import com.kosherjava.zmanim.ZmanimCalendar;
 import com.kosherjava.zmanim.AstronomicalCalendar;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,8 +34,20 @@ public class MainActivity extends AppCompatActivity {
         zmanimList = (ListView) findViewById(R.id.zmanim_list);
 
         ArrayList<String> categories = new ArrayList<>();
-        boolean sunrise = categories.add("עלות השחר:"+ czc.getAlosHashachar());
+        boolean dawn = categories.add("עלות השחר:"+ czc.getAlosHashachar());
+        boolean misheyakir = categories.add("תחילת זמן ציצית ותפילין:"+ czc.getMisheyakir11Point5Degrees());
+        boolean sunrise = categories.add("הנץ החמה:"+ czc.getSunrise());
+        boolean shemaMGA = categories.add("סוף זמן קריאת שמע מגן אברהם (72 דקות):"+ czc.getSofZmanShmaMGA72Minutes());
+        boolean shemaGra = categories.add("סוף זמן קריאת שמע גר\"א ובעל התניא:"+ czc.getSofZmanShmaBaalHatanya());
+        boolean tfilaMGA = categories.add("סוף זמן תפילה מגן אברהם (72 דקות):"+ czc.getSofZmanTfilaMGA72Minutes());
+        boolean tfilaGra = categories.add("סוף זמן תפילה גר\"א ובעל התניא:"+ czc.getSofZmanTfilaBaalHatanya());
+        boolean midday = categories.add("חצות היום:"+ czc.getFixedLocalChatzos());
+        boolean earlyMincha = categories.add("מנחה גדולה:"+ czc.getMinchaGedolaBaalHatanya());
+        boolean plagMincha = categories.add("פלג המנחה:"+ czc.getPlagHamincha());
         boolean sunset = categories.add("שקיעה:"+ czc.getSunset());
+        boolean threeStars = categories.add("לילה - צאת ג' כוכבים:"+ czc.getTzaisGeonim8Point5Degrees());
+        boolean nightfall = categories.add("לילה - 72 דקות:"+ czc.getTzais72Zmanis());
+
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, categories);
 
